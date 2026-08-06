@@ -1,1 +1,456 @@
-:root{--cream:#fbf8f3;--sand:#f2ebe2;--ink:#302923;--muted:#746b64;--rose:#a96f74;--rose-dark:#85545a;--green:#657165}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:var(--cream);font-family:Montserrat,Arial,sans-serif;line-height:1.65}h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;line-height:1.05;margin:.25em 0}h1{font-size:clamp(3.2rem,5.2vw,5.8rem);font-weight:500}h2{font-size:clamp(2.6rem,4vw,4.4rem);font-weight:500}h3{font-size:2rem}p{color:var(--muted)}a{color:inherit}header{height:116px;padding:12px clamp(24px,6vw,100px);display:flex;align-items:center;justify-content:space-between;background:#fff;position:relative;z-index:5}.brand img{width:165px;height:90px;object-fit:contain}nav{display:flex;align-items:center;gap:28px}nav a{text-decoration:none;font-size:.83rem;text-transform:uppercase;letter-spacing:.08em}.menu{display:none;border:0;background:none;font-size:1.7rem}.btn{border:1px solid transparent;padding:14px 22px;font:600 .74rem Montserrat;text-transform:uppercase;letter-spacing:.1em;text-decoration:none;cursor:pointer;display:inline-block}.primary{background:var(--rose);color:#fff}.primary:hover{background:var(--rose-dark)}.secondary{border-color:#b6a79a;background:transparent}.hero{display:grid;grid-template-columns:1.02fr .98fr;min-height:680px}.hero-copy{padding:clamp(70px,9vw,140px) clamp(28px,8vw,130px);display:flex;flex-direction:column;justify-content:center}.hero h1 em{color:var(--rose);font-weight:500}.eyebrow{text-transform:uppercase;letter-spacing:.18em;font-size:.7rem;font-weight:600;color:var(--rose)}.lead{font-size:1.15rem;max-width:580px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}.note{font-size:.82rem;margin-top:28px}.hero-image{background:url('/retherapy-room.png') center/cover no-repeat}.trust{background:var(--sand);display:grid;grid-template-columns:repeat(3,1fr);text-align:center;padding:24px clamp(20px,9vw,140px);gap:20px;text-transform:uppercase;letter-spacing:.12em;font-size:.72rem}.section{padding:110px clamp(24px,9vw,150px)}.heading{max-width:760px;margin:0 auto 55px;text-align:center}.three{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}.three article{background:#fff;padding:42px;border-top:3px solid var(--rose)}.three h3{color:var(--rose)}.about{display:grid;grid-template-columns:minmax(280px,480px) 1fr;gap:clamp(45px,8vw,120px);align-items:center;background:#fff}.about img{width:100%;max-height:620px;object-fit:cover}.license{font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;margin-top:28px}.treatments{background:var(--sand)}.cards{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:1200px;margin:auto}.treatment{background:#fff}.treatment button{width:100%;min-height:230px;border:0;background:#fff;text-align:left;padding:34px;display:flex;justify-content:space-between;cursor:pointer;color:var(--ink)}.treatment small{color:var(--rose);letter-spacing:.14em}.treatment b{font:300 2rem Montserrat;color:var(--rose);transition:.2s}.treatment button[aria-expanded=true] b{transform:rotate(45deg)}.detail{display:none;padding:0 34px 34px;border-top:1px solid #eee}.treatment button[aria-expanded=true]+.detail{display:block}.detail h4{text-transform:uppercase;letter-spacing:.12em;font-size:.72rem;margin-top:25px}.process{display:grid;grid-template-columns:.8fr 1.2fr;gap:80px;background:#fff}.process ol{list-style:none;margin:0;padding:0}.process li{display:flex;gap:24px;border-top:1px solid #ddd;padding:28px 0}.process li span{color:var(--rose);font-family:Georgia;font-size:2rem}.process h3{font-size:1.65rem}.process p{margin:6px 0}.contact{padding:90px clamp(24px,9vw,150px);background:var(--rose-dark);color:#fff;display:grid;grid-template-columns:1fr 1fr;gap:80px}.contact p,.light{color:#f6e9e7}.light{background:#fff;color:var(--rose-dark)}address{display:flex;flex-direction:column;gap:18px;font-style:normal}address a{text-decoration:none}footer{background:#fff;text-align:center;padding:32px}footer img{width:150px;height:90px;object-fit:contain}footer p{font-size:.75rem}dialog{border:0;padding:42px;width:min(620px,92vw);box-shadow:0 25px 80px #0005}dialog::backdrop{background:#211a17b3}.close{position:absolute;right:18px;top:12px;border:0;background:none;font-size:2rem;cursor:pointer}form{display:grid;gap:16px}label{font-size:.72rem;text-transform:uppercase;letter-spacing:.09em;font-weight:600}input,textarea{display:block;width:100%;margin-top:6px;padding:13px;border:1px solid #cabdb3;background:#fff;font:1rem Montserrat;text-transform:none;letter-spacing:0}.fine{font-size:.72rem}@media(max-width:900px){header{height:96px}.brand img{height:75px;width:140px}.menu{display:block}nav{display:none;position:absolute;top:96px;left:0;right:0;background:#fff;padding:25px;flex-direction:column;box-shadow:0 15px 20px #0002}.open{display:flex}.hero{grid-template-columns:1fr}.hero-image{min-height:480px;order:-1}.trust,.three,.cards,.about,.process,.contact{grid-template-columns:1fr}.about{gap:45px}.section{padding:75px 24px}.process,.contact{gap:35px;padding:75px 24px}}@media(max-width:520px){h1{font-size:3rem}.hero-copy{padding:55px 24px}.hero-image{min-height:360px}.trust{grid-template-columns:1fr;padding:18px}.three article{padding:30px}.treatment button{min-height:auto;padding:28px}.detail{padding:0 28px 28px}}
+:root {
+  --cream: #fbf8f3;
+  --sand: #f2ebe2;
+  --ink: #302923;
+  --muted: #746b64;
+  --rose: #a96f74;
+  --rose-dark: #85545a;
+  --green: #657165;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--cream);
+  font-family: Montserrat, Arial, sans-serif;
+  line-height: 1.65;
+}
+h1,
+h2,
+h3 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  line-height: 1.05;
+  margin: 0.25em 0;
+}
+h1 {
+  font-size: clamp(3.2rem, 5.2vw, 5.8rem);
+  font-weight: 500;
+}
+h2 {
+  font-size: clamp(2.6rem, 4vw, 4.4rem);
+  font-weight: 500;
+}
+h3 {
+  font-size: 2rem;
+}
+p {
+  color: var(--muted);
+}
+a {
+  color: inherit;
+}
+header {
+  height: 116px;
+  padding: 12px clamp(24px, 6vw, 100px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  position: relative;
+  z-index: 5;
+}
+.brand img {
+  width: 165px;
+  height: 90px;
+  object-fit: contain;
+}
+nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+nav a {
+  text-decoration: none;
+  font-size: 0.83rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.menu {
+  display: none;
+  border: 0;
+  background: none;
+  font-size: 1.7rem;
+}
+.btn {
+  border: 1px solid transparent;
+  padding: 14px 22px;
+  font: 600 0.74rem Montserrat;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-block;
+}
+.primary {
+  background: var(--rose);
+  color: #fff;
+}
+.primary:hover {
+  background: var(--rose-dark);
+}
+.secondary {
+  border-color: #b6a79a;
+  background: transparent;
+}
+.hero {
+  display: grid;
+  grid-template-columns: 1.02fr 0.98fr;
+  min-height: 680px;
+}
+.hero-copy {
+  padding: clamp(70px, 9vw, 140px) clamp(28px, 8vw, 130px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.hero h1 em {
+  color: var(--rose);
+  font-weight: 500;
+}
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--rose);
+}
+.lead {
+  font-size: 1.15rem;
+  max-width: 580px;
+}
+.actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 22px;
+}
+.note {
+  font-size: 0.82rem;
+  margin-top: 28px;
+}
+.hero-image {
+  background: url("/retherapy-room.png") center/cover no-repeat;
+}
+.trust {
+  background: var(--sand);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  text-align: center;
+  padding: 24px clamp(20px, 9vw, 140px);
+  gap: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.72rem;
+}
+.section {
+  padding: 110px clamp(24px, 9vw, 150px);
+}
+.heading {
+  max-width: 760px;
+  margin: 0 auto 55px;
+  text-align: center;
+}
+.three {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.three article {
+  background: #fff;
+  padding: 42px;
+  border-top: 3px solid var(--rose);
+}
+.three h3 {
+  color: var(--rose);
+}
+.about {
+  display: grid;
+  grid-template-columns: minmax(280px, 480px) 1fr;
+  gap: clamp(45px, 8vw, 120px);
+  align-items: center;
+  background: #fff;
+}
+.about img {
+  width: 100%;
+  max-height: 620px;
+  object-fit: cover;
+}
+.license {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 28px;
+}
+.treatments {
+  background: var(--sand);
+}
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+.treatment {
+  background: #fff;
+}
+.treatment button {
+  width: 100%;
+  min-height: 230px;
+  border: 0;
+  background: #fff;
+  text-align: left;
+  padding: 34px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  color: var(--ink);
+}
+.treatment small {
+  color: var(--rose);
+  letter-spacing: 0.14em;
+}
+.treatment b {
+  font: 300 2rem Montserrat;
+  color: var(--rose);
+  transition: 0.2s;
+}
+.treatment button[aria-expanded="true"] b {
+  transform: rotate(45deg);
+}
+.detail {
+  display: none;
+  padding: 0 34px 34px;
+  border-top: 1px solid #eee;
+}
+.treatment button[aria-expanded="true"] + .detail {
+  display: block;
+}
+.detail h4 {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.72rem;
+  margin-top: 25px;
+}
+.process {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 80px;
+  background: #fff;
+}
+.process ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.process li {
+  display: flex;
+  gap: 24px;
+  border-top: 1px solid #ddd;
+  padding: 28px 0;
+}
+.process li span {
+  color: var(--rose);
+  font-family: Georgia;
+  font-size: 2rem;
+}
+.process h3 {
+  font-size: 1.65rem;
+}
+.process p {
+  margin: 6px 0;
+}
+.contact {
+  padding: 90px clamp(24px, 9vw, 150px);
+  background: var(--rose-dark);
+  color: #fff;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+}
+.contact p,
+.light {
+  color: #f6e9e7;
+}
+.light {
+  background: #fff;
+  color: var(--rose-dark);
+}
+address {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  font-style: normal;
+}
+address a {
+  text-decoration: none;
+}
+footer {
+  background: #fff;
+  text-align: center;
+  padding: 32px;
+}
+footer img {
+  width: 150px;
+  height: 90px;
+  object-fit: contain;
+}
+footer p {
+  font-size: 0.75rem;
+}
+dialog {
+  border: 0;
+  padding: 42px;
+  width: min(620px, 92vw);
+  box-shadow: 0 25px 80px #0005;
+}
+dialog::backdrop {
+  background: #211a17b3;
+}
+.close {
+  position: absolute;
+  right: 18px;
+  top: 12px;
+  border: 0;
+  background: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+form {
+  display: grid;
+  gap: 16px;
+}
+label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  font-weight: 600;
+}
+input,
+textarea {
+  display: block;
+  width: 100%;
+  margin-top: 6px;
+  padding: 13px;
+  border: 1px solid #cabdb3;
+  background: #fff;
+  font: 1rem Montserrat;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.fine {
+  font-size: 0.72rem;
+}
+.form-message { margin: 0; }
+.form-message.error { color: #a02e35; }
+.success { padding: 20px 0; text-align: center; }
+.success-text { color: var(--green); }
+button:disabled { cursor: wait; opacity: 0.65; }
+.admin-login { width: min(540px, calc(100% - 40px)); margin: 8vh auto; padding: clamp(30px, 6vw, 60px); background: #fff; box-shadow: 0 20px 70px #3b2d2420; }
+.admin-login img { width: 180px; height: 100px; object-fit: contain; }
+.admin-login > a { display: inline-block; margin-top: 28px; }
+.admin-header { position: static; min-height: 110px; height: auto; }
+.admin-header img { width: 150px; height: 86px; object-fit: contain; }
+.admin-header div { display: flex; align-items: center; gap: 18px; }
+.admin-main { max-width: 1400px; margin: auto; padding: 70px clamp(20px, 8vw, 120px); }
+.admin-main > h1 { margin-bottom: 8px; }
+.client-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: 35px; }
+.client-card, .empty { padding: 30px; border-top: 3px solid var(--rose); background: #fff; box-shadow: 0 12px 35px #3b2d2410; }
+.client-card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; }
+.client-card h3 { margin-top: 0; }
+.client-card h4 { margin: 25px 0 5px; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; }
+.client-card p { white-space: pre-wrap; }
+.status { padding: 7px 11px; color: var(--rose-dark); background: var(--sand); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; }
+.client-card dl { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; }
+.client-card dl div:last-child { grid-column: 1/-1; }
+.client-card dt { color: var(--muted); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; }
+.client-card dd { margin: 3px 0; }
+.client-card a { color: var(--rose-dark); }
+@media (max-width: 900px) {
+  header {
+    height: 96px;
+  }
+  .brand img {
+    height: 75px;
+    width: 140px;
+  }
+  .menu {
+    display: block;
+  }
+  nav {
+    display: none;
+    position: absolute;
+    top: 96px;
+    left: 0;
+    right: 0;
+    background: #fff;
+    padding: 25px;
+    flex-direction: column;
+    box-shadow: 0 15px 20px #0002;
+  }
+  .open {
+    display: flex;
+  }
+  .hero {
+    grid-template-columns: 1fr;
+  }
+  .hero-image {
+    min-height: 480px;
+    order: -1;
+  }
+  .trust,
+  .three,
+  .cards,
+  .about,
+  .process,
+  .contact {
+    grid-template-columns: 1fr;
+  }
+  .about {
+    gap: 45px;
+  }
+  .section {
+    padding: 75px 24px;
+  }
+  .process,
+  .contact {
+    gap: 35px;
+    padding: 75px 24px;
+  }
+  .client-list { grid-template-columns: 1fr; }
+  .admin-header div span { display: none; }
+}
+@media (max-width: 520px) {
+  h1 {
+    font-size: 3rem;
+  }
+  .hero-copy {
+    padding: 55px 24px;
+  }
+  .hero-image {
+    min-height: 360px;
+  }
+  .trust {
+    grid-template-columns: 1fr;
+    padding: 18px;
+  }
+  .three article {
+    padding: 30px;
+  }
+  .treatment button {
+    min-height: auto;
+    padding: 28px;
+  }
+  .detail {
+    padding: 0 28px 28px;
+  }
+  .admin-header { padding: 10px 20px; }
+  .admin-main { padding: 45px 20px; }
+  .client-card dl { grid-template-columns: 1fr; }
+  .client-card dl div:last-child { grid-column: auto; }
+}

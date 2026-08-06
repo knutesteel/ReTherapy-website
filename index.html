@@ -1,1 +1,226 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Personalized therapeutic massage in a private setting in Apollo Beach, Florida."><title>ReTherapy Massage</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="/src.css"></head><body><header><a href="#top" class="brand"><img src="/retherapy-logo.png" alt="ReTherapy Massage — Repair, Relax, Renew"></a><button class="menu" aria-label="Open menu" aria-expanded="false">☰</button><nav><a href="#about">About</a><a href="#treatments">Treatments</a><a href="#process">The Process</a><a href="#contact">Contact</a><button class="btn primary invite">Request an Invitation</button></nav></header><main id="top"><section class="hero"><div class="hero-copy"><p class="eyebrow">ReTherapy Massage · Apollo Beach</p><h1>Clinical Therapeutic Bodywork in a <em>Private Luxury Setting.</em></h1><p class="lead">Personalized treatment that helps you repair, renew, and relax.</p><div class="actions"><button class="btn primary invite">Request an Invitation</button><a class="btn secondary" href="#treatments">Explore Treatments</a></div><p class="note">✦ New clients by referral or invitation only.</p></div><div class="hero-image" role="img" aria-label="The private ReTherapy treatment room"></div></section><section class="trust"><span>Personalized care</span><span>One dedicated therapist</span><span>Private Apollo Beach studio</span></section><section class="section outcomes"><div class="heading"><p class="eyebrow">Care With Intention</p><h2>Repair. Renew. Relax.</h2><p>Massage goes beyond luxury. It can be a vital part of self-care with a positive ripple effect on how you work, play, and care for others.</p></div><div class="three"><article><h3>Repair</h3><p>Targeted therapeutic techniques help relieve pain, address muscle tension, and support recovery from injury, surgery, arthritis, or everyday strain.</p></article><article><h3>Renew</h3><p>Improved mobility, circulation, energy, and flexibility help you return to the work, activities, and people that matter most.</p></article><article><h3>Relax</h3><p>A calm, private setting and personalized care help lower stress, quiet the nervous system, and encourage healthier sleep patterns.</p></article></div></section><section class="section about" id="about"><img src="/colleen-steel.jpg" alt="Colleen Steel, Licensed Massage Therapist"><div><p class="eyebrow">Meet Your Therapist</p><h2>Care Grounded in Experience</h2><p>Colleen Steel, LMT, brings more than 12 years of experience as a Physical Therapy Assistant to every session. Her clinical background helps her understand how the body moves, compensates, heals, and responds to focused care.</p><p>Every treatment is shaped around you—your comfort, goals, history, and what your body needs that day. ReTherapy is a private practice designed for consistent, personal care without the rushed feel of a large spa.</p><p class="license">Colleen Steel, LMT · Florida License #MA 57589</p></div></section><section class="section treatments" id="treatments"><div class="heading"><p class="eyebrow">Treatment Options</p><h2>Choose the Care Your Body Needs</h2><p>Click any treatment to learn about the process, benefits, and who it may help.</p></div><div class="cards" id="treatmentCards"></div></section><section class="section process" id="process"><div><p class="eyebrow">The ReTherapy Process</p><h2>A Session Designed Around You</h2></div><ol><li><span>1</span><div><h3>Start With a Conversation</h3><p>Share what you are feeling, what has changed, and what you hope to improve.</p></div></li><li><span>2</span><div><h3>Create a Personalized Plan</h3><p>Colleen selects and blends techniques based on your needs, preferences, and comfort.</p></div></li><li><span>3</span><div><h3>Adjust as Your Body Responds</h3><p>Pressure, pacing, and focus evolve throughout the session with your feedback.</p></div></li></ol></section><section class="contact" id="contact"><div><p class="eyebrow light">Private Practice · Apollo Beach</p><h2>Connect With ReTherapy</h2><p>New-client requests are reviewed within 48 hours.</p><button class="btn light invite">Start a Conversation</button></div><address><a href="https://www.google.com/maps/search/?api=1&query=443+Apollo+Beach+Blvd+Apollo+Beach+FL+33572" target="_blank" rel="noreferrer">443 Apollo Beach Blvd.<br>Apollo Beach, FL 33572</a><a href="tel:+18133991538">(813) 399-1538</a><a href="mailto:colleen@retherapy.com">colleen@retherapy.com</a><a href="https://www.facebook.com/profile.php?id=61588835002405" target="_blank" rel="noreferrer">Follow ReTherapy on Facebook</a></address></section></main><footer><img src="/retherapy-logo.png" alt="ReTherapy Massage"><p>© 2026 ReTherapy Massage. All rights reserved.</p></footer><dialog id="requestDialog"><button class="close" aria-label="Close">×</button><div id="formView"><p class="eyebrow">Request an Invitation</p><h2>Tell Colleen How She Can Help</h2><form id="requestForm"><label>Name<input name="name" required autocomplete="name"></label><label>Email<input name="email" type="email" required autocomplete="email"></label><label>Phone<input name="phone" type="tel" autocomplete="tel"></label><label>What would you like help with?<textarea name="message" rows="5" required></textarea></label><button class="btn primary" type="submit">Email My Request</button><p class="fine">Submitting opens your email app with the information addressed to Colleen.</p></form></div></dialog><script type="module" src="/src.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Personalized therapeutic massage in a private setting in Apollo Beach, Florida."
+    />
+    <title>ReTherapy Massage</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Montserrat:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src.css" />
+  </head>
+  <body>
+    <header>
+      <a href="#top" class="brand"
+        ><img
+          src="/retherapy-logo.png"
+          alt="ReTherapy Massage — Repair, Relax, Renew" /></a
+      ><button class="menu" aria-label="Open menu" aria-expanded="false">
+        ☰
+      </button>
+      <nav>
+        <a href="#about">About</a><a href="#treatments">Treatments</a
+        ><a href="#process">The Process</a><a href="#contact">Contact</a
+        ><button class="btn primary invite">Request an Invitation</button>
+      </nav>
+    </header>
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">ReTherapy Massage · Apollo Beach</p>
+          <h1>
+            Clinical Therapeutic Bodywork in a <em>Private Luxury Setting.</em>
+          </h1>
+          <p class="lead">
+            Personalized treatment that helps you repair, renew, and relax.
+          </p>
+          <div class="actions">
+            <button class="btn primary invite">Request an Invitation</button
+            ><a class="btn secondary" href="#treatments">Explore Treatments</a>
+          </div>
+          <p class="note">✦ New clients by referral or invitation only.</p>
+        </div>
+        <div
+          class="hero-image"
+          role="img"
+          aria-label="The private ReTherapy treatment room"
+        ></div>
+      </section>
+      <section class="trust">
+        <span>Personalized care</span><span>One dedicated therapist</span
+        ><span>Private Apollo Beach studio</span>
+      </section>
+      <section class="section outcomes">
+        <div class="heading">
+          <p class="eyebrow">Care With Intention</p>
+          <h2>Repair. Renew. Relax.</h2>
+          <p>
+            Massage goes beyond luxury. It can be a vital part of self-care with
+            a positive ripple effect on how you work, play, and care for others.
+          </p>
+        </div>
+        <div class="three">
+          <article>
+            <h3>Repair</h3>
+            <p>
+              Targeted therapeutic techniques help relieve pain, address muscle
+              tension, and support recovery from injury, surgery, arthritis, or
+              everyday strain.
+            </p>
+          </article>
+          <article>
+            <h3>Renew</h3>
+            <p>
+              Improved mobility, circulation, energy, and flexibility help you
+              return to the work, activities, and people that matter most.
+            </p>
+          </article>
+          <article>
+            <h3>Relax</h3>
+            <p>
+              A calm, private setting and personalized care help lower stress,
+              quiet the nervous system, and encourage healthier sleep patterns.
+            </p>
+          </article>
+        </div>
+      </section>
+      <section class="section about" id="about">
+        <img
+          src="/colleen-steel.jpg"
+          alt="Colleen Steel, Licensed Massage Therapist"
+        />
+        <div>
+          <p class="eyebrow">Meet Your Therapist</p>
+          <h2>Care Grounded in Experience</h2>
+          <p>
+            Colleen Steel, LMT, brings more than 12 years of experience as a
+            Physical Therapy Assistant to every session. Her clinical background
+            helps her understand how the body moves, compensates, heals, and
+            responds to focused care.
+          </p>
+          <p>
+            Every treatment is shaped around you—your comfort, goals, history,
+            and what your body needs that day. ReTherapy is a private practice
+            designed for consistent, personal care without the rushed feel of a
+            large spa.
+          </p>
+          <p class="license">Colleen Steel, LMT · Florida License #MA 57589</p>
+        </div>
+      </section>
+      <section class="section treatments" id="treatments">
+        <div class="heading">
+          <p class="eyebrow">Treatment Options</p>
+          <h2>Choose the Care Your Body Needs</h2>
+          <p>
+            Click any treatment to learn about the process, benefits, and who it
+            may help.
+          </p>
+        </div>
+        <div class="cards" id="treatmentCards"></div>
+      </section>
+      <section class="section process" id="process">
+        <div>
+          <p class="eyebrow">The ReTherapy Process</p>
+          <h2>A Session Designed Around You</h2>
+        </div>
+        <ol>
+          <li>
+            <span>1</span>
+            <div>
+              <h3>Start With a Conversation</h3>
+              <p>
+                Share what you are feeling, what has changed, and what you hope
+                to improve.
+              </p>
+            </div>
+          </li>
+          <li>
+            <span>2</span>
+            <div>
+              <h3>Create a Personalized Plan</h3>
+              <p>
+                Colleen selects and blends techniques based on your needs,
+                preferences, and comfort.
+              </p>
+            </div>
+          </li>
+          <li>
+            <span>3</span>
+            <div>
+              <h3>Adjust as Your Body Responds</h3>
+              <p>
+                Pressure, pacing, and focus evolve throughout the session with
+                your feedback.
+              </p>
+            </div>
+          </li>
+        </ol>
+      </section>
+      <section class="contact" id="contact">
+        <div>
+          <p class="eyebrow light">Private Practice · Apollo Beach</p>
+          <h2>Connect With ReTherapy</h2>
+          <p>New-client requests are reviewed within 48 hours.</p>
+          <button class="btn light invite">Start a Conversation</button>
+        </div>
+        <address>
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=443+Apollo+Beach+Blvd+Apollo+Beach+FL+33572"
+            target="_blank"
+            rel="noreferrer"
+            >443 Apollo Beach Blvd.<br />Apollo Beach, FL 33572</a
+          ><a href="tel:+18133991538">(813) 399-1538</a
+          ><a href="mailto:colleen@retherapy.com">colleen@retherapy.com</a
+          ><a
+            href="https://www.facebook.com/profile.php?id=61588835002405"
+            target="_blank"
+            rel="noreferrer"
+            >Follow ReTherapy on Facebook</a
+          >
+        </address>
+      </section>
+    </main>
+    <footer>
+      <img src="/retherapy-logo.png" alt="ReTherapy Massage" />
+      <p>© 2026 ReTherapy Massage. All rights reserved.</p>
+    </footer>
+    <dialog id="requestDialog">
+      <button class="close" aria-label="Close">×</button>
+      <div id="formView">
+        <p class="eyebrow">Request an Invitation</p>
+        <h2>Tell Colleen How She Can Help</h2>
+        <form id="requestForm">
+          <label>Name<input name="name" required autocomplete="name" /></label
+          ><label
+            >Email<input
+              name="email"
+              type="email"
+              required
+              autocomplete="email" /></label
+          ><label
+            >Phone<input name="phone" type="tel" autocomplete="tel" /></label
+          ><label
+            >What would you like help with?<textarea
+              name="message"
+              rows="5"
+              required
+            ></textarea></label
+          ><button class="btn primary" type="submit">Send My Request</button>
+          <p class="fine">
+            Your information will be sent securely to ReTherapy.
+          </p>
+          <p class="form-message" aria-live="polite"></p>
+        </form>
+      </div>
+    </dialog>
+    <div id="clientsApp" hidden></div>
+    <script type="module" src="/src.js"></script>
+  </body>
+</html>

@@ -121,6 +121,25 @@ document
       submit.textContent = "Send My Request";
       return;
     }
+
+    // Notify Colleen after the request is safely stored. A notification failure
+    // must not discard or duplicate the client's saved request.
+    try {
+      const response = await fetch("/api/notify-invitation", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: data.get("name").trim(),
+          email: data.get("email").trim(),
+          phone: data.get("phone").trim() || null,
+          message: data.get("message").trim(),
+        }),
+      });
+      if (!response.ok) console.error("Invitation notification could not be sent.");
+    } catch (notificationError) {
+      console.error("Invitation notification could not be sent.", notificationError);
+    }
+
     form.reset();
     form.innerHTML =
       '<div class="success"><h3>Thank you.</h3><p>Your information has been sent to ReTherapy. Colleen will be in touch within 48 hours.</p><button class="btn secondary close-success" type="button">Close</button></div>';

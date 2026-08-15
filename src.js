@@ -332,22 +332,63 @@ async function showAdmin(app) {
 }
 
 function renderClientRequests(app, data, error) {
+  const count = app.querySelector("#clientCount");
+  const list = app.querySelector("#clientList");
+
   if (error) {
-    app.querySelector("#clientCount").textContent =
-      "Client requests could not be loaded.";
+    count.textContent = "Client requests could not be loaded.";
     return;
   }
 
-  app.querySelector("#clientCount").textContent =
-    `${data.length} website ${data.length === 1 ? "request" : "requests"}`;
-  app.querySelector("#clientList").innerHTML = data.length
-    ? data
-        .map(
-          (client) =>
-            `<article class="client-card"><div class="client-card-head"><div><p class="eyebrow">${new Date(client.created_at).toLocaleString()}</p><h3>${escapeHtml(client.name)}</h3></div><span class="status">${escapeHtml(client.status)}</span></div><dl><div><dt>Email</dt><dd><a href="mailto:${escapeHtml(client.email)}">${escapeHtml(client.email)}</a></dd></div><div><dt>Phone</dt><dd>${client.phone ? `<a href="tel:${escapeHtml(client.phone)}">${escapeHtml(client.phone)}</a>` : "Not provided"}</dd></div><div><dt>Source</dt><dd>${escapeHtml(client.source)}</dd></div></dl><h4>What they would like help with</h4><p>${escapeHtml(client.message)}</p></article>`,
-        )
-        .join("")
-    : '<div class="empty"><h3>No website requests yet.</h3><p>New Get in Touch submissions will appear here.</p></div>';
+  updateClientCount(count, data.length);
+  if (!data.length) {
+    list.innerHTML =
+      '<div class="empty"><h3>No website requests yet.</h3><p>New Get in Touch submissions will appear here.</p></div>';
+    return;
+  }
+
+  list.innerHTML = `<div class="client-table-wrap"><table class="client-table"><thead><tr><th>Date</th><th>Client</th><th>Contact</th><th>Request</th><th>Status</th><th><span class="sr-only">Actions</span></th></tr></thead><tbody>${data
+    .map(
+      (client) =>
+        `<tr data-client-row="${escapeHtml(client.id)}"><td><time datetime="${escapeHtml(client.created_at)}">${new Date(client.created_at).toLocaleString()}</time></td><td><strong>${escapeHtml(client.name)}</strong><small>${escapeHtml(client.source)}</small></td><td><a href="mailto:${escapeHtml(client.email)}">${escapeHtml(client.email)}</a>${client.phone ? `<a href="tel:${escapeHtml(client.phone)}">${escapeHtml(client.phone)}</a>` : '<small>Phone not provided</small>'}</td><td class="client-message">${escapeHtml(client.message)}</td><td><span class="status">${escapeHtml(client.status)}</span></td><td><button class="delete-client" type="button" data-client-id="${escapeHtml(client.id)}" data-client-name="${escapeHtml(client.name)}" aria-label="Delete request from ${escapeHtml(client.name)}">Delete</button></td></tr>`,
+    )
+    .join("")}</tbody></table></div>`;
+
+  list.querySelectorAll(".delete-client").forEach((button) => {
+    button.addEventListener("click", async () => {
+      const clientName = button.dataset.clientName;
+      const approved = window.confirm(
+        `Delete the request from ${clientName}? This cannot be undone.`,
+      );
+      if (!approved) return;
+
+      button.disabled = true;
+      button.textContent = "Deleting…";
+      const { error: deleteError } = await supabase
+        .from("client_requests")
+        .delete()
+        .eq("id", button.dataset.clientId);
+
+      if (deleteError) {
+        button.disabled = false;
+        button.textContent = "Delete";
+        window.alert("The request could not be deleted. Please try again.");
+        return;
+      }
+
+      button.closest("tr").remove();
+      const remaining = list.querySelectorAll("tbody tr").length;
+      updateClientCount(count, remaining);
+      if (!remaining) {
+        list.innerHTML =
+          '<div class="empty"><h3>No website requests yet.</h3><p>New Get in Touch submissions will appear here.</p></div>';
+      }
+    });
+  });
+}
+
+function updateClientCount(element, total) {
+  element.textContent = `${total} website ${total === 1 ? "request" : "requests"}`;
 }
 
 function renderAnalytics(app, events, error, clients, cutoff) {

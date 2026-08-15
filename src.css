@@ -12,6 +12,7 @@
 }
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 116px;
 }
 body {
   margin: 0;
@@ -51,8 +52,10 @@ header {
   align-items: center;
   justify-content: space-between;
   background: #fff;
-  position: relative;
-  z-index: 5;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 4px 18px #3b2d2412;
 }
 .brand img {
   width: 165px;
@@ -354,7 +357,7 @@ button:disabled { cursor: wait; opacity: 0.65; }
 .admin-login { width: min(540px, calc(100% - 40px)); margin: 8vh auto; padding: clamp(30px, 6vw, 60px); background: #fff; box-shadow: 0 20px 70px #3b2d2420; }
 .admin-login img { width: 180px; height: 100px; object-fit: contain; }
 .admin-login > a { display: inline-block; margin-top: 28px; }
-.admin-header { position: static; min-height: 110px; height: auto; }
+.admin-header { position: sticky; top: 0; z-index: 50; min-height: 110px; height: auto; }
 .admin-header img { width: 150px; height: 86px; object-fit: contain; }
 .admin-header div { display: flex; align-items: center; gap: 18px; }
 .admin-main { max-width: 1400px; margin: auto; padding: 70px clamp(20px, 8vw, 120px); }

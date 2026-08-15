@@ -1,4 +1,4 @@
-const RECIPIENT = "colleen@retherapy.com";
+const RECIPIENTS = ["knutesteel@gmail.com", "colleen@retherapy.com"];
 const FROM = "ReTherapy <notifications@retherapy.com>";
 
 function escapeHtml(value) {
@@ -41,7 +41,7 @@ export default async function handler(request, response) {
     },
     body: JSON.stringify({
       from: FROM,
-      to: [RECIPIENT],
+      to: RECIPIENTS,
       reply_to: cleanEmail,
       subject: `New ReTherapy Invitation Request — ${cleanName}`,
       html: `
@@ -54,7 +54,7 @@ export default async function handler(request, response) {
         </table>
         <h3>What they would like help with</h3>
         <p style="white-space:pre-wrap">${escapeHtml(cleanMessage)}</p>
-        <p><a href="https://www.retherapy.com/clients">Open the private Clients page</a></p>
+        <p><a href="https://www.retherapy.com/admin">Open ReTherapy Admin</a></p>
       `,
     }),
   });

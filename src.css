@@ -585,3 +585,81 @@ button:disabled { cursor: wait; opacity: 0.65; }
     gap: 3px;
   }
 }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.client-list {
+  display: block;
+}
+.client-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  background: #fff;
+  box-shadow: 0 12px 35px #3b2d2410;
+}
+.client-table {
+  width: 100%;
+  min-width: 1050px;
+  border-collapse: collapse;
+  text-align: left;
+}
+.client-table th {
+  padding: 15px 18px;
+  color: var(--muted);
+  background: var(--sand);
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+}
+.client-table td {
+  padding: 18px;
+  border-top: 1px solid #eee5df;
+  vertical-align: top;
+  font-size: 0.82rem;
+}
+.client-table tbody tr:hover {
+  background: #fdfaf7;
+}
+.client-table time,
+.client-table small {
+  display: block;
+  color: var(--muted);
+  font-size: 0.72rem;
+}
+.client-table a {
+  display: block;
+  color: var(--rose-dark);
+  overflow-wrap: anywhere;
+}
+.client-message {
+  min-width: 280px;
+  max-width: 440px;
+  white-space: pre-wrap;
+}
+.delete-client {
+  border: 1px solid #b7535a;
+  padding: 8px 11px;
+  color: #9b343c;
+  background: #fff;
+  font: 600 0.66rem Montserrat;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  cursor: pointer;
+}
+.delete-client:hover {
+  color: #fff;
+  background: #9b343c;
+}
+.delete-client:disabled {
+  cursor: wait;
+  opacity: 0.55;
+}

@@ -1,5 +1,5 @@
 const RECIPIENT = "colleen@retherapy.com";
-const FROM = "ReTherapy Website <notifications@retherapy.com>";
+const FROM = "ReTherapy <notifications@retherapy.com>";
 
 function escapeHtml(value) {
   return String(value ?? "").replace(

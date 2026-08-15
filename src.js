@@ -5,6 +5,22 @@ const supabase = createClient(
   "sb_publishable_GwRUdRMkX-pP3uIEESljdQ_FUZKVfbq",
 );
 const ADMIN_EMAIL = "knutesteel@gmail.com";
+const ADMIN_URL = "https://www.retherapy.com/clients";
+
+// Supabase may return an email confirmation session in the URL. If the
+// provider falls back to the public homepage, recover the callback and open
+// the private Clients screen without requiring the administrator to navigate
+// there manually.
+const isAuthCallback =
+  location.hash.includes("access_token=") ||
+  new URLSearchParams(location.search).has("code");
+if (isAuthCallback && location.pathname !== "/clients") {
+  history.replaceState(
+    {},
+    "",
+    `/clients${location.search}${location.hash}`,
+  );
+}
 const treatments = [
   {
     title: "Swedish Massage",
@@ -204,11 +220,11 @@ function showLogin(app) {
     const { error } = await supabase.auth.signUp({
       email: ADMIN_EMAIL,
       password,
-      options: { emailRedirectTo: `${location.origin}/clients` },
+      options: { emailRedirectTo: ADMIN_URL },
     });
     output.textContent = error
       ? "Setup could not be completed. If the account already exists, use Sign In."
-      : "Check knutesteel@gmail.com to confirm the account, then return here and sign in.";
+      : "Check knutesteel@gmail.com and follow the confirmation link. It will return you to this Clients page.";
     output.className = `form-message ${error ? "error" : "success-text"}`;
   });
 }

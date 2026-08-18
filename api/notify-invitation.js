@@ -3,6 +3,7 @@ const FROM = "ReTherapy <notifications@retherapy.com>";
 const ALLOWED_ORIGINS = new Set([
   "https://www.retherapy.com",
   "https://retherapy.com",
+  "https://retherapy-massage.lovable.app",
   "https://id-preview--244af328-6230-4189-8a40-aa556a960338.lovable.app",
 ]);
 

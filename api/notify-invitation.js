@@ -1,5 +1,21 @@
 const RECIPIENTS = ["knutesteel@gmail.com", "colleen@retherapy.com"];
 const FROM = "ReTherapy <notifications@retherapy.com>";
+const ALLOWED_ORIGINS = new Set([
+  "https://www.retherapy.com",
+  "https://retherapy.com",
+  "https://id-preview--244af328-6230-4189-8a40-aa556a960338.lovable.app",
+]);
+
+function setCorsHeaders(request, response) {
+  const origin = request.headers.origin;
+  if (!origin || !ALLOWED_ORIGINS.has(origin)) return false;
+
+  response.setHeader("Access-Control-Allow-Origin", origin);
+  response.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
+  response.setHeader("Access-Control-Allow-Headers", "Content-Type");
+  response.setHeader("Vary", "Origin");
+  return true;
+}
 
 function escapeHtml(value) {
   return String(value ?? "").replace(
@@ -12,9 +28,21 @@ function escapeHtml(value) {
 }
 
 export default async function handler(request, response) {
+  const allowedOrigin = setCorsHeaders(request, response);
+
+  if (request.method === "OPTIONS") {
+    return allowedOrigin
+      ? response.status(204).end()
+      : response.status(403).json({ error: "Origin not allowed" });
+  }
+
   if (request.method !== "POST") {
     response.setHeader("Allow", "POST");
     return response.status(405).json({ error: "Method not allowed" });
+  }
+
+  if (request.headers.origin && !allowedOrigin) {
+    return response.status(403).json({ error: "Origin not allowed" });
   }
 
   const apiKey = process.env.RESEND_API_KEY;
